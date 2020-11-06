@@ -26,12 +26,16 @@
 
 {{#object.methods}}
 {{#hasProperties}}
+<br /> 
+
 ## {{strings.objectMethods.propertiesTitle}}
 {{#properties}}
 {{>Method}}
 {{/properties}}
 {{/hasProperties}}
 {{#hasClassMethods}}
+<br />
+
 <a title="{{strings.objectMethods.classMethodsTitle}}" name="class_methods"></a>
 ## {{strings.objectMethods.classMethodsTitle}}
 {{#classMethods}}
@@ -39,6 +43,8 @@
 {{/classMethods}}
 {{/hasClassMethods}}
 {{#hasInstanceMethods}}
+<br />
+
 <a title="{{strings.objectMethods.instanceMethodsTitle}}" name="instance_methods"></a>
 ## {{strings.objectMethods.instanceMethodsTitle}}
 {{#instanceMethods}}
@@ -130,6 +136,8 @@ EndSection
 
 
 Section Method
+<br />
+
 <a name="{{htmlReferenceName}}" title="{{methodSelector}}"></a>
 ### {{methodSelector}}
 {{#comment}}
@@ -171,15 +179,11 @@ Section Method
 * `{{>GBCommentComponent}}`
 {{/relatedItems.components}}
 {{/hasRelatedItems}}
-{{#prefferedSourceInfo}}
-#### {{strings.objectMethods.declaredInTitle}}
-* `{{filename}}`
-{{/prefferedSourceInfo}}
 {{/comment}}
 EndSection
 
 Section MethodDeclaration
-{{#formattedComponents}}{{#emphasized}}*{{/emphasized}}{{#href}}<a href="{{&href}}">{{/href}}{{value}}{{#href}}</a>{{/href}}{{#emphasized}}*{{/emphasized}}{{/formattedComponents}}
+{{#formattedComponents}}{{value}}{{/formattedComponents}}
 EndSection
 
 
@@ -193,9 +197,6 @@ Section Constant
 Available in {{#availability}}{{#components}}{{stringValue}}{{/components}}{{/availability}}
 {{/hasAvailability}}
 {{/comment}}
-{{#prefferedSourceInfo}}
-&nbsp;&nbsp;&nbsp;{{strings.objectMethods.declaredInTitle}} `{{filename}}`.
-{{/prefferedSourceInfo}}
 EndSection
 
 
@@ -226,9 +227,5 @@ Section BlocksDefList
 * <code>{{>GBCommentComponent}}</code>
 {{/relatedItems.components}}
 {{/hasRelatedItems}}
-{{#prefferedSourceInfo}}
-#### {{strings.objectMethods.declaredInTitle}}
-<code class="declared-in-ref">{{filename}}</code>
-{{/prefferedSourceInfo}}
 {{/comment}}
 EndSection

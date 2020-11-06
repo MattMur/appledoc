@@ -343,6 +343,17 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(GBApplicationSettingsProvider, sharedApplicationS
 	return result;
 }
 
+- (NSString *)stringByUnescapingHTML:(NSString *)string {
+    NSMutableString *result = [NSMutableString stringWithCapacity:5 + ceilf(string.length * 1.1)];
+    [result appendString:string];
+    [result replaceOccurrencesOfString:@"&amp;" withString:@"&" options:NSLiteralSearch range:NSMakeRange(0, result.length)];
+    [result replaceOccurrencesOfString:@"&lt;" withString:@"<" options:NSLiteralSearch range:NSMakeRange(0, result.length)];
+    [result replaceOccurrencesOfString:@"&gt;" withString:@">" options:NSLiteralSearch range:NSMakeRange(0, result.length)];
+    [result replaceOccurrencesOfString:@"&quot;" withString:@"\"" options:NSLiteralSearch range:NSMakeRange(0, result.length)];
+    [result replaceOccurrencesOfString:@"&apos;" withString:@"'" options:NSLiteralSearch range:NSMakeRange(0, result.length)];
+    return result;
+}
+
 - (NSString *)stringByReplacingOccurencesOfRegex:(NSString *)regex inHTML:(NSString *)string usingBlock:(NSString *(^)(NSInteger captureCount, NSString * __unsafe_unretained *capturedStrings, BOOL insideCode))block {
 	NSString *theRegex = [NSString stringWithFormat:@"<code>|</code>|%@", regex];
 	__block BOOL insideExampleBlock = NO;

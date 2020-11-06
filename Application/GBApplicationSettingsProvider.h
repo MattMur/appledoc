@@ -565,6 +565,7 @@ NSString *NSStringFromGBPublishedFeedFormats(GBPublishedFeedFormats format);
  @see stringByConvertingMarkdownToText:
  */
 - (NSString *)stringByEscapingHTML:(NSString *)string;
+- (NSString *)stringByUnescapingHTML:(NSString *)string;
 
 /** Returns HTML reference name for the given object.
  

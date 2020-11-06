@@ -153,7 +153,7 @@
     string = [paragraphMatchRegx stringByReplacingMatchesInString:string options:0 range:NSMakeRange(0, string.length) withTemplate:@""];
     string = [divMatchRegx stringByReplacingMatchesInString:string options:0 range:NSMakeRange(0, string.length) withTemplate:@"\n\n"];
     string = [divCloseMatchRegx stringByReplacingMatchesInString:string options:0 range:NSMakeRange(0, string.length) withTemplate:@""];
-    return string;
+    return [self.settings stringByUnescapingHTML:string];;
 }
 
 - (NSString *)markdownOutputPathForObject:(GBModelBase *)object {
